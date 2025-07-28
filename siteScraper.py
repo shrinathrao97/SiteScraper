@@ -17,9 +17,8 @@ def get_all_text_from_url(url):
         # Find and remove all elements with the specified id
         for element in htmlTagsToIgnore:
             tags = soup.find_all(id=element)
-            print(tags[0])
             for tag in tags:
-                temp = tag.extract()
+                temp = tag.decompose()
 
         text_content = soup.get_text(separator='\n', strip=True)
         return text_content
